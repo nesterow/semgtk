@@ -3,12 +3,6 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 
-LAYOUT_OPTS = dict (
-    fullscreen = False, 
-    width = 0, 
-    height = 0
-)
-
 PROPS = dict (
     spacing = 0,
     halign = 0,
@@ -66,6 +60,10 @@ class Layout:
         )
         self._redraw()
         return self
+    
+    def end(self):
+        return self.layout
 
-    def get(self):
+    @property
+    def widget(self):
         return self.layout

@@ -1,4 +1,4 @@
-
+from .styles import load_css
 #@abstract
 class Extension:
     
@@ -17,6 +17,11 @@ class Extension:
     #= set padding inside row
     def padding(self, padding = 0):
         self.args [2] = padding
+        return self
+    
+    #= set css selector id
+    def cssId(self, name):
+        self.set_name(name)
         return self
 
     
