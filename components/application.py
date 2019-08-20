@@ -11,7 +11,7 @@ OPTS = dict (
 
 class Application(Gtk.ApplicationWindow):
     def __init__(self, *k, **kv):
-        super().__init__(self, *k, **kv)
+        super().__init__(*k, **kv)
         self.connect('destroy', lambda w: Gtk.main_quit())
     
     def run(self):

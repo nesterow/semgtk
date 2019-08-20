@@ -1,9 +1,4 @@
-import os.path
-import sys
-
-parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, parent)
-
+import init
 from components import Layout, create_app, load_css
 from components import Element as E
 

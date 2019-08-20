@@ -32,7 +32,7 @@ def Element(cls):
     class Widget(cls, SettingsChain):
         def __init__(self, *k, **kv):
             try:
-                super().__init__(self, *k, **kv)
+                super().__init__(*k, **kv)
             except:
                 super().__init__()
             self.args = [0,0,0]   
