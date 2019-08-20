@@ -11,6 +11,7 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+from samples.hello import draw
 
 if __name__ == "__main__":
  
@@ -19,12 +20,9 @@ if __name__ == "__main__":
     one.set_size_request(200, 200)
     print(one.get_css_name())
 
-    two = E(Gtk.Button)(label="Glob").expand(True, True)
-    two.set_size_request(100, 100)
-
-    last = E(Gtk.Button)(label="Olleh").expand(True, True)
-    last.set_size_request(100, 100)
+    last = E(Gtk.DrawingArea)().expand(True, True)
+    last.connect('draw', draw)
     layout = Layout().asColumns()\
-        .add_widgets([one, two, last]).end()
+        .add_widgets([one, last]).end()
     load_css(__file__, 'window.css')
-    create_app(layout).run()
+    create_app(layout, title = "Emulator").run()

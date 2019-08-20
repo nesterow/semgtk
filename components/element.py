@@ -1,7 +1,9 @@
 from .styles import load_css
+
 #@abstract
-class Extension:
+class SettingsChain:
     
+    #= pack arguments for Gtk.Box
     def pack(self, position = [0,0,0]):
         self.args = position
         return self
@@ -27,8 +29,11 @@ class Extension:
     
 
 def Element(cls):
-    class Widget(cls, Extension):
+    class Widget(cls, SettingsChain):
         def __init__(self, *k, **kv):
-            super().__init__(self, *k, **kv)
+            try:
+                super().__init__(self, *k, **kv)
+            except:
+                super().__init__()
             self.args = [0,0,0]   
     return Widget
