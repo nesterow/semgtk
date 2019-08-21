@@ -14,3 +14,8 @@ def load_css(ctx, filename):
         provider,
         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
     )
+
+def RGB(R, G, B, A = None):
+    unit = float(255)
+    rgb = (float(R) / unit, float(G) / unit, float(B) / unit)
+    return A and (*rgb, A) or rgb

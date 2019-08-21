@@ -1,4 +1,4 @@
-from .styles import load_css
+from .graphics import load_css
 
 #@abstract
 class SettingsChain:
