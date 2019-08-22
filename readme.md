@@ -86,11 +86,11 @@ Convenince methods for setting animation timers.
 Tweener's easing functions (Penner's Easing Equations)
 
 ```
-# -- For all easing functions:
-# -- t = elapsed time
-# -- b = begin
-# -- c = change == ending - beginning
-# -- d = duration (total time)
+For all easing functions:
+  t = elapsed time
+  b = begin
+  c = change == ending - beginning
+  d = duration (total time)
 ```
 
 - easing.linear(t, b, c, d)
