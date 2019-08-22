@@ -26,9 +26,9 @@ class Clock(FrameLoop):
         ctx.set_font_size(font_size)
         unit = RADIAN / 12
         for i in text:
-            ctx.set_source_rgba(*RGB(0,0,0, .9))
+            ctx.set_source_rgba(*RGB(20,20,20, .9))
             ctx.rotate(unit)
-            ctx.move_to( - (font_size / 4),-(r - font_size * 4))
+            ctx.move_to( -(font_size / (4 - len(i))), -(r - font_size * 4))
             ctx.show_text(i)
 
     def draw_minutes(self, ctx, size, r):
@@ -41,7 +41,7 @@ class Clock(FrameLoop):
         for i in text:
             ctx.set_source_rgba(*RGB(0,0,0, .9))
             ctx.rotate(unit)
-            ctx.move_to( - (font_size / 4),-(r - font_size * 2.5))
+            ctx.move_to( - (font_size / (4 - len(i))),-(r - font_size * 2.5))
             ctx.show_text(i)
 
 
@@ -124,12 +124,12 @@ class Clock(FrameLoop):
             ctx.stroke()
             ctx.close_path()
 
-        draw_line(70, RGB(200, 200, 200), lambda: self.rotate_hours(hours, r / 1.3))
-        draw_line(200, RGB(200, 200, 200), lambda: self.rotate_minutes(minutes, r / 1.1 ))
+        draw_line(70, RGB(100, 100, 100), lambda: self.rotate_hours(hours, r / 1.3))
+        draw_line(200, RGB(150, 150, 150), lambda: self.rotate_minutes(minutes, r / 1.1 ))
         draw_line(400, RGB(200, 200, 200), lambda: self.rotate_seconds(seconds, r / 1.05))
         
         ctx.set_source_rgb(*RGB(200, 200, 200))
-        ctx.arc(0, 0, min(size.w, size.h) / 80 , 0, 2 * math.pi)
+        ctx.arc(0, 0, min(size.w, size.h) / 50 , 0, 2 * math.pi)
         ctx.fill()
 
         self.draw_hours(ctx, size, r)
