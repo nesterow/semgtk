@@ -2,12 +2,11 @@ import init
 import math
 import cairo
 import time
-from components import Layout, FrameLoop, create_app, easing, RGB
+from components import VerticalSplit, FrameLoop, create_app, easing, RGB
 from components import Element as E
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-
 
 RADIAN = math.pi * 2
 
@@ -109,11 +108,15 @@ class Clock(FrameLoop):
 if __name__ == "__main__":
  
     # layout.set_vertical()
-    one = E(Clock)().expand(True, True)
+    one = E(Clock, lambda w: (
+        w.expand(True, True)
+    ))
 
-    last = E(Gtk.Button)(label = "Hello").expand(False, False)
+    last = E(Gtk.Button, lambda w: (
+        w.expand(False, False),
+        w.set_label('button')
+    ))
     
-    layout = Layout().asRows()\
-        .add_widgets([one, last]).end()
+    layout = VerticalSplit([one, last])
 
-    create_app(layout, title = "Emulator").run()
+    create_app(layout, title = "Emulator", fullscreen= True).run()

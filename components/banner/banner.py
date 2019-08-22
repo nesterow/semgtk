@@ -12,6 +12,7 @@ class Banner(Gtk.DrawingArea):
         self.connect('draw', self.draw)
     
     def draw(self, wgt, ctx):
+        pass
         
 
     

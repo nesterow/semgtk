@@ -28,12 +28,16 @@ class SettingsChain:
 
     
 
-def Element(cls):
+def Element(cls, _config = lambda w: 0):
     class Widget(cls, SettingsChain):
         def __init__(self, *k, **kv):
             try:
                 super().__init__(*k, **kv)
             except:
                 super().__init__()
-            self.args = [0,0,0]   
-    return Widget
+            self.args = [0,0,0]
+        def _config(self):
+            _config(self)
+    wgt = Widget()
+    wgt._config()
+    return wgt
