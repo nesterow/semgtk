@@ -73,7 +73,7 @@ class Layout:
 
 
 def VerticalSplit(widgets):
-    return Layout(widgets, 1).draw()
+    return Layout(widgets, 0).draw()
 
 def HorizontalSplit(widgets):
-    return Layout(widgets, 0).draw()
+    return Layout(widgets, 1).draw()
