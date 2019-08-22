@@ -13,10 +13,11 @@ if __name__ == "__main__":
     # layout.set_vertical()
     one = E(Gtk.Button)(label="Hello").expand(False, False).cssId('BlackButton')
     one.set_size_request(200, 200)
-    print(one.get_css_name())
 
-    last = E(Gtk.DrawingArea)().expand(True, True)
-    last.connect('draw', draw)
+    last = E(Gtk.Image)().expand(True, True).cssId('image')
+    last.set_from_file('samples/background.png')
+    last.set_size_request(200, 200)
+
     layout = Layout().asColumns()\
         .add_widgets([one, last]).end()
     load_css(__file__, 'window.css')

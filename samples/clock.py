@@ -98,11 +98,11 @@ class Clock(FrameLoop):
             ctx.stroke()
             ctx.close_path()
 
-        draw_line(70, RGB(0, 0, 255), lambda: self.rotate_hours(hours, r / 1.3))
-        draw_line(200, RGB(0, 255, 0), lambda: self.rotate_minutes(minutes, r / 1.1 ))
-        draw_line(400, RGB(255, 0, 0), lambda: self.rotate_seconds(seconds, r / 1.05))
+        draw_line(70, RGB(200, 200, 200), lambda: self.rotate_hours(hours, r / 1.3))
+        draw_line(200, RGB(200, 200, 200), lambda: self.rotate_minutes(minutes, r / 1.1 ))
+        draw_line(400, RGB(200, 200, 200), lambda: self.rotate_seconds(seconds, r / 1.05))
         
-        ctx.set_source_rgb(*RGB(255, 0, 0))
+        ctx.set_source_rgb(*RGB(200, 200, 200))
         ctx.arc(0, 0, min(size.w, size.h) / 80 , 0, 2 * math.pi)
         ctx.fill()
 
