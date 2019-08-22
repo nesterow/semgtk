@@ -17,6 +17,33 @@ class Clock(FrameLoop):
         self._seconds = 0
         self._minutes = 0
         self._hours = 0
+    
+    def draw_hours(self, ctx, size, r):
+        text = [ str(i) for i in range(1,13) ]
+        ctx.select_font_face("Courier", cairo.FONT_SLANT_NORMAL,
+            cairo.FONT_WEIGHT_BOLD)
+        font_size = r / 20
+        ctx.set_font_size(font_size)
+        unit = RADIAN / 12
+        for i in text:
+            ctx.set_source_rgba(*RGB(0,0,0, .9))
+            ctx.rotate(unit)
+            ctx.move_to( - (font_size / 4),-(r - font_size * 4))
+            ctx.show_text(i)
+
+    def draw_minutes(self, ctx, size, r):
+        text = [ str(i) for i in range(1,61) ]
+        ctx.select_font_face("Courier", cairo.FONT_SLANT_NORMAL,
+            cairo.FONT_WEIGHT_BOLD)
+        font_size = r / 30
+        ctx.set_font_size(font_size)
+        unit = RADIAN / 60
+        for i in text:
+            ctx.set_source_rgba(*RGB(0,0,0, .9))
+            ctx.rotate(unit)
+            ctx.move_to( - (font_size / 4),-(r - font_size * 2.5))
+            ctx.show_text(i)
+
 
     def rotate_seconds(self, seconds, r):
         unit = RADIAN / 60
@@ -104,6 +131,9 @@ class Clock(FrameLoop):
         ctx.set_source_rgb(*RGB(200, 200, 200))
         ctx.arc(0, 0, min(size.w, size.h) / 80 , 0, 2 * math.pi)
         ctx.fill()
+
+        self.draw_hours(ctx, size, r)
+        self.draw_minutes(ctx, size, r)
 
 if __name__ == "__main__":
  
