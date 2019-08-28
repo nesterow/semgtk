@@ -1,7 +1,7 @@
 SemanticGTK [WIP]
 -----------------
 
-Python utilities for [GTK+](https://www.gtk.org/) and [gobject-introspection](https://gi.readthedocs.io/en/latest/).
+Python samples for [GTK+](https://www.gtk.org/) and [gobject-introspection](https://gi.readthedocs.io/en/latest/).
 
 ### Getting stated
 Install Python3, GTK3, and gobject-introspection libraries for your operation system. 
